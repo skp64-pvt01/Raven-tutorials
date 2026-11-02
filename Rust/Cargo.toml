@@ -1,0 +1,22 @@
+# Raven tutorials for Rust - one crate per step, built together.
+
+[workspace]
+resolver = "2"
+
+members = [
+    "01-first-window",
+    "02-layout",
+    "03-controls",
+    "04-actions",
+    "05-xml-files",
+    "06-menus",
+    "07-text-editor",
+    "08-capstone-notes",
+]
+
+# Raven is a development dependency, not vendored: the binding comes from the
+# Raven repository. This is the revision the course was written against; use
+# `branch = "devel"` to follow Raven, or `path = "/your/Raven/bindings/rust"`
+# to use a local checkout (see README.md).
+[workspace.dependencies]
+raven-gui = { git = "https://github.com/skp64-pvt01/Raven", rev = "dc1da3d8b064dcd4e0308b0f0f7c6b4b9f17231f" }

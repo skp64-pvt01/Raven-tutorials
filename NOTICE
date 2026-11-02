@@ -1,0 +1,7 @@
+Raven Tutorials
+
+The four courses build on Raven (https://github.com/skp64-pvt01/Raven),
+licensed under the Apache License, Version 2.0. Raven is a development
+dependency: no Raven source or library is included in this repository.
+
+The C++, Rust, Python and TypeScript course material is Apache-2.0; see LICENSE.

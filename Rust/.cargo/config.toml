@@ -1,0 +1,24 @@
+# How this course finds the Raven library.
+#
+# Raven is a development dependency: it is not vendored, and neither is its
+# binding. The binding is fetched from the Raven repository (see Cargo.toml).
+# The C library comes from the installed raven-dev package, or from a checkout
+# you build and install yourself:
+#
+#     cmake -S /path/to/Raven -B /path/to/Raven/build -DRAVEN_BUILD_SHARED=ON
+#     cmake --build /path/to/Raven/build
+#     cmake --install /path/to/Raven/build --prefix /usr/local
+#
+# The defaults below are for the raven-dev package on Linux (a static
+# libraven.a in /usr/lib). Override them on the command line for any other
+# setup; a real environment variable wins over this file:
+#
+#     RAVEN_LIB_DIR=/path/to/Raven/build RAVEN_STATIC=0 cargo test --workspace
+#
+# A shared build also needs the loader to find libraven.so at run time; set
+# RUSTFLAGS=-C link-arg=-Wl,-rpath,/path/to/Raven/build when building, or
+# install the library in a system folder.
+#
+[env]
+RAVEN_LIB_DIR = "/usr/lib"
+RAVEN_STATIC = "1"
